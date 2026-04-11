@@ -28,9 +28,11 @@ The dataset provides per-municipality, per-year real estate indicators: transact
 - pandas
 - matplotlib
 - seaborn
+- folium (pre-installed in Google Colab)
+- numpy (pre-installed in Google Colab)
 
 ```
-pip install pandas matplotlib seaborn
+pip install -r requirements.txt
 ```
 
 ## Running
@@ -46,7 +48,15 @@ pip install pandas matplotlib seaborn
 3. **Cleaning** -- Drops irrelevant columns, maps department names.
 4. **Period splitting** -- Segments data into pre-COVID, COVID, and post-COVID.
 5. **Descriptive statistics** -- Summary stats for each period and overall.
-6. **Visualizations** -- Sales volume bar chart, price trends over time, price/m² trends, property size distribution, yearly price boxplots.
+6. **Basic visualizations** -- Sales volume bar chart, price trends over time, price/m² trends, property size distribution, yearly price boxplots.
+7. **Advanced visualizations** --
+   - Interactive choropleth map (folium) of avg price/m² by department
+   - Price/m² evolution by department (multi-line with COVID shading)
+   - Correlation heatmap of numeric variables
+   - COVID impact grouped bar chart (pre/during/post by department)
+   - Year-over-year % price change rate
+   - Violin plots of price distribution by period
+   - Scatter plot of price vs surface area (by period and department)
 
 ## Key findings
 

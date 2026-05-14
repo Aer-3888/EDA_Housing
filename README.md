@@ -1,4 +1,4 @@
-# Housing Market EDA -- Pays de la Loire, France (2014-2023)
+# Housing Market EDA: Pays de la Loire, France (2014-2023)
 
 Exploratory data analysis of housing prices across the Pays de la Loire region, focused on measuring the impact of COVID-19 on the real estate market.
 
@@ -10,17 +10,17 @@ Loads 10 years of French real estate transaction data (290k+ records nationally,
 
 | Period | Years | Avg. Price | Avg. Price/m² |
 |---|---|---|---|
-| Pre-COVID | 2014-2019 | ~134k | ~1,399/m² |
-| COVID | 2020-2021 | ~156k | ~1,590/m² |
-| Post-COVID | 2022-2023 | ~177k | ~1,843/m² |
+| Pre-COVID | 2014-2019 | ~134k | ~1,384/m² |
+| COVID | 2020-2021 | ~154k | ~1,550/m² |
+| Post-COVID | 2022-2023 | ~172k | ~1,762/m² |
 
 Departments covered: Loire-Atlantique (44), Maine-et-Loire (49), Mayenne (53), Sarthe (72), Vendee (85).
 
 ## Data source
 
-[data.gouv.fr -- Indicateurs immobiliers par commune et par annee (2014-2023)](https://www.data.gouv.fr/fr/datasets/indicateurs-immobiliers-par-commune-et-par-annee-prix-et-volumes-sur-la-periode-2014-2023/#/resources)
+[data.gouv.fr: Indicateurs immobiliers par commune et par annee (2014-2023)](https://www.data.gouv.fr/fr/datasets/indicateurs-immobiliers-par-commune-et-par-annee-prix-et-volumes-sur-la-periode-2014-2023/#/resources)
 
-The dataset provides per-municipality, per-year real estate indicators: transaction counts, average prices, price per m², average surface area, and house/apartment splits.
+The dataset provides per-municipality, per-year real estate indicators including transaction counts, average prices, price per m², average surface area, and house/apartment splits.
 
 ## Requirements
 
@@ -43,13 +43,14 @@ pip install -r requirements.txt
 
 ## Notebook structure
 
-1. **Data loading** -- Reads and concatenates 10 yearly CSV files into a single dataframe.
-2. **Filtering** -- Keeps only municipalities from Pays de la Loire using INSEE commune codes.
-3. **Cleaning** -- Drops irrelevant columns, maps department names.
-4. **Period splitting** -- Segments data into pre-COVID, COVID, and post-COVID.
-5. **Descriptive statistics** -- Summary stats for each period and overall.
-6. **Basic visualizations** -- Sales volume bar chart, price trends over time, price/m² trends, property size distribution, yearly price boxplots.
-7. **Advanced visualizations** --
+1. **Data loading** — Reads and concatenates 10 yearly CSV files into a single dataframe.
+2. **Filtering** — Keeps only municipalities from Pays de la Loire using INSEE commune codes.
+3. **Cleaning** — Drops irrelevant columns, maps department names.
+4. **Data preparation** — Audits missing values and duplicates, removes invalid entries, detects and Winsorizes outliers (1.5×IQR), validates INSEE commune code format.
+5. **Period splitting** — Segments data into pre-COVID, COVID, and post-COVID.
+6. **Descriptive statistics** — Summary stats for each period and overall.
+7. **Basic visualizations** — Sales volume bar chart, price trends over time, price/m² trends, property size distribution, yearly price boxplots.
+8. **Advanced visualizations**
    - Interactive choropleth map (folium) of avg price/m² by department
    - Price/m² evolution by department (multi-line with COVID shading)
    - Correlation heatmap of numeric variables
@@ -60,8 +61,8 @@ pip install -r requirements.txt
 
 ## Key findings
 
-- Average prices rose ~32% from pre-COVID to post-COVID.
-- Price per m² increased ~32% over the same span.
+- Average prices rose ~29% from pre-COVID to post-COVID.
+- Price per m² increased ~27% over the same span.
 - Transaction volume stayed remarkably stable (~1,200/year) throughout all three periods.
 - The steepest price acceleration occurred during 2020-2022.
 
